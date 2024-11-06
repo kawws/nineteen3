@@ -1,21 +1,193 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body{
+  margin: 0;
+  font-family: Gilroy;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+a{
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Header */
+
+.logo{
+  max-width: 100%;
+  height: auto;
+}
+header{
+  height: 64px;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #E4E7EC;
+  background-color: white;
+  position: sticky;
+  top: 0;
+
+}
+
+header div{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header-placeholder{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header ul{
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+header ul li{
+  padding: 0;
+  font-size: 12px;
+  color: black;
+}
+
+.social-media{
+  display: flex;
+  align-items: center;
+}
+
+/* Underline Animation for header items */
+.header-item {
+  display: flex;
+  position: relative;
+  padding-bottom: 2px;
+  font-size: 12px;
+  color: black;
+  align-items: center;
+  height: 100%;
+}
+
+.header-item a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Underline Animation for header items */
+
+.header-item a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Default state for the underline */
+.header-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px; /* Thickness of the underline */
+  width: 100%;
+  background-color: black; /* Customize underline color */
+  transform: scaleX(0); /* Start with the underline hidden */
+  transform-origin: left; /* Scale from left to right */
+  transition: transform .3s ease-in-out; /* Smooth transition */
+  opacity: 1;
+}
+
+/* Hover state for the underline */
+.header-item:hover::after {
+  transform: scaleX(1); /* Full width on hover */
+}
+
+/* Retract from left to right on unhover */
+.header-item:not(:hover)::after {
+  transform: scaleX(0); /* Scale down to hide */
+}
+
+nav{
+  height: 100%;
+}
+
+
+
+/* Index */
+.hero-section{
+  padding: 20px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.hero-div{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-div button{
+  position: absolute;
+  background-color: white;
+  border: 0;
+  font-family: gilroy;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 8px 32px 8px 32px;
+  white-space: nowrap;
+  line-height: 1.25rem;
+  height: 2.75rem;
+}
+
+.hero-div img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Projekt */
+.grid-container {
+  display: grid;
+}
+
+.grid-row:nth-child(odd) {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2-column layout for odd rows */
+}
+
+.grid-row:nth-child(even) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3-column layout for even rows */
+}
+
+.grid-item {
+  background-color: lightgray;
+  padding: 0px;
+  text-align: center;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;  
+}
+
+.grid-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* src/app/globals.css */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('./fonts/Gilroy-Semibold.ttf') format('truetype');
+  font-weight: 600; /* Adjust as necessary */
+  font-style: normal;
 }
