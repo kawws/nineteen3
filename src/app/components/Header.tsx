@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header>
       <Link href="/">
-        <Image src="../../NineTeen-logo-black.svg" className="logo" alt="Logo" width={130} height={50} />
+        <Image src="/nineteen-logo-black.svg" className="logo" alt="Logo" width={130} height={50} />
       </Link>
       <div>
         <nav>
