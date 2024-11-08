@@ -1,30 +1,36 @@
-import { render } from "@react-email/render";
-import ContactEmail from "../../../../emails";  // Adjust this path as necessary
-import { Resend } from "resend";
+// route.ts
 
+import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+// Initialize Resend with the API key from environment variables
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: Request) {
-    const { name, email, message } = await request.json();
+export async function POST(request: NextRequest) {
+  try {
+    // Parse the JSON body from the request
+    const { name, email, phone, message } = await request.json();
 
-    try {
-        // Generate HTML content with render function
-        const htmlContent = render(ContactEmail({ name, email, message }));
+    // Send the email using Resend's API
+    const data = await resend.emails.send({
+      from: 'Info <onboarding@resend.dev>',
+      to: email,
+      subject: 'New message from website',
+      html: `<p>Name: ${name}</p>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phone}</p>
+      <p>Message: ${message}</p>
+      `
+      ,
+    });
 
-        const { data, error } = await resend.emails.send({
-            from: "INFO <onboarding@resend.dev>",
-            to: [email],
-            subject: "New Contact Form Submission",
-            html: await htmlContent, // Await here
-        });
-
-        if (error) {
-            return new Response(JSON.stringify({ message: error.message }), { status: 500 });
-        }
-
-        return new Response(JSON.stringify({ message: "Message sent successfully" }), { status: 200 });
-    } catch (error) {
-        // Type assertion for error to access the message property
-        return new Response(JSON.stringify({ message: (error as Error).message }), { status: 500 });
-    }
+    // Respond with a success message and the data from Resend
+    return NextResponse.json({ status: 'success', data });
+  } catch (error) {
+    // Ensure error is handled as an Error type for better TypeScript compatibility
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    
+    // Return a JSON response with the error message and a 500 status code
+    return NextResponse.json({ status: 'error', message: errorMessage }, { status: 500 });
+  }
 }

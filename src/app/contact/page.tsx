@@ -1,14 +1,14 @@
-// src/app/page.tsx
-import React from 'react';
+// page.tsx (Server Component by default)
+
 import ContactForm from '../components/ContactForm';
 
-const Page: React.FC = () => {
+export default function Page() {
   return (
     <div>
       <h1>Contact Us</h1>
       <ContactForm />
+      
     </div>
-  );
-};
 
-export default Page;
+  );
+}

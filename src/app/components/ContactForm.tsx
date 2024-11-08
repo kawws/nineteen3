@@ -1,60 +1,88 @@
-"use client";  // This line marks the component as a client component
+'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const ContactForm = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
+export default function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const res = await fetch('/api/mail', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, phone, message }),
+      headers: { 'Content-Type': 'application/json' },
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
+    if (res.ok) {
+      // Clear the form fields
+      setName('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+      setFormSubmitted(true); // Set the form submitted state to true
+      setIsSubmitting(false); // Reset the submitting state
+      setTimeout(() => setFormSubmitted(false), 3000); // Reset button text after 3 seconds
+    } else {
+      alert("Error sending message. Please try again.");
+    }
+    
+    setIsSubmitting(false);
+  };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-            const result = await response.json();
-            if (response.ok) {
-                alert('Message sent successfully!');
-            } else {
-                alert('Error sending message: ' + result.message);
-            }
-        } catch (error) {
-            alert('Error: ' + (error as Error).message);
-        }
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Name:
-                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-            </label>
-            <label>
-                Email:
-                <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-            </label>
-            <label>
-                Message:
-                <textarea name="message" value={formData.message} onChange={handleChange} required />
-            </label>
-            <button type="submit">Send Message</button>
-        </form>
-    );
-};
-
-export default ContactForm;
+  return (
+    <form onSubmit={handleSubmit} className='contact-form'>
+      <div className='form-div'>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder='Namn'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
+      <div className='form-div'>
+        <input
+          type="email"
+          placeholder='E-post'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div className='form-div'>
+        <input
+          type="tel"
+          placeholder='Telefon'
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
+      </div>
+      <div className='form-div'>
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          placeholder='Meddelande'
+        />
+      </div>
+      
+      <button
+        type="submit"
+        className='submit'
+        disabled={isSubmitting || formSubmitted}
+      >
+        {formSubmitted ? 'Skickat' : isSubmitting ? 'Skickar...' : 'Skicka'}
+      </button>
+    </form>
+  );
+}

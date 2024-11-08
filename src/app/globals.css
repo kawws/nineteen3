@@ -69,7 +69,7 @@ header ul li{
 .header-item {
   display: flex;
   position: relative;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
   font-size: 12px;
   color: black;
   align-items: center;
@@ -79,13 +79,7 @@ header ul li{
 .header-item a {
   color: black;
   text-decoration: none;
-}
-
-/* Underline Animation for header items */
-
-.header-item a {
-  color: black;
-  text-decoration: none;
+  height: 100%;
 }
 
 /* Default state for the underline */
@@ -108,10 +102,11 @@ header ul li{
   transform: scaleX(1); /* Full width on hover */
 }
 
-/* Retract from left to right on unhover */
-.header-item:not(:hover)::after {
-  transform: scaleX(0); /* Scale down to hide */
+/* Always show underline for active item */
+.header-item.active::after {
+  transform: scaleX(1); /* Full width */
 }
+
 
 nav{
   height: 100%;
@@ -184,6 +179,66 @@ nav{
   object-fit: cover;
 }
 
+/* Contact */
+.contact-form{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 60%;
+}
+.form-div{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: 150ms;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(231 229 228);
+}
+
+.form-div input,
+.form-div textarea{
+  padding: 12px 12px 12px;
+  box-sizing: border-box;
+  color: black;
+  font-family: Gilroy;
+  border: 0;
+  width: 100%;
+  font-family: 14px;
+}
+
+.form-div textarea{
+  height: 100px;
+  resize: none;
+}
+
+#name{
+  text-transform: capitalize;
+}
+
+.form-div input::placeholder,
+.form-div textarea::placeholder{
+  color: rgb(102 112 133)
+}
+
+.submit{
+  text-transform: uppercase;
+  background-color: black;
+  border: 0;
+  padding: 12px;
+  font-family: Gilroy;
+  color: white;
+  font-family: 14px;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+}
+
+.submit:hover{
+  background-color: gray;
+}
+
 /* src/app/globals.css */
 @font-face {
   font-family: 'Gilroy';
@@ -191,3 +246,4 @@ nav{
   font-weight: 600; /* Adjust as necessary */
   font-style: normal;
 }
+

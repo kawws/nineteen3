@@ -1,8 +1,14 @@
-// src/app/components/Header.tsx
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
   return (
     <header>
       <Link href="/">
@@ -10,24 +16,32 @@ export default function Header() {
       </Link>
       <div>
         <nav>
-            <ul>
-                <Link href="/projekt"><li className='header-item'>Tidigare projekt</li></Link>
-                <Link href="/projekt"><li className='header-item'>Tekniker</li></Link>
-                <Link href="/projekt"><li className='header-item'>Om oss</li></Link>
-                <Link href="/contact"><li className='header-item'>Kontakt</li></Link>
-            </ul>
+          <ul>
+            <li className={`header-item ${isActive('/projekt') ? 'active' : ''}`}>
+              <Link href="/projekt">Tidigare projekt</Link>
+            </li>
+            <li className={`header-item ${isActive('/tekniker') ? 'active' : ''}`}>
+              <Link href="/tekniker">Tekniker</Link>
+            </li>
+            <li className={`header-item ${isActive('/om-oss') ? 'active' : ''}`}>
+              <Link href="/om-oss">Om oss</Link>
+            </li>
+            <li className={`header-item ${isActive('/contact') ? 'active' : ''}`}>
+              <Link href="/contact">Kontakt</Link>
+            </li>
+          </ul>
         </nav>
         <ul className="social-media">
-            <li className='header-item'>
+          <li className='header-item'>
             <a href="https://instagram.com/nineteen.production" target="_blank" rel="noopener noreferrer">
-                <span>Instagram</span>
+              <span>Instagram</span>
             </a>
-            </li>
-            <li className='header-item'>
+          </li>
+          <li className='header-item'>
             <a href="https://www.linkedin.com/company/nineteen-production/" target="_blank" rel="noopener noreferrer">
-                <span>LinkedIn</span>
+              <span>LinkedIn</span>
             </a>
-            </li>
+          </li>
         </ul>
       </div>
     </header>
