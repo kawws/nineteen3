@@ -5,7 +5,7 @@ export default function ProjectPage() {
         <div className="grid-container">
             <div className="grid-row">
               <div className="grid-item">
-                <img src="projektbilder/tjuvjakt-grå.jpeg" alt="projekt1"/>
+                <img src="projektbilder/tjuvjakt-gra.jpeg" alt="projekt1"/>
               </div>
               <div className="grid-item">
                 <img src="projektbilder/tjuvjakt-svart.jpeg" alt=""/>
@@ -27,7 +27,7 @@ export default function ProjectPage() {
                     <img src="projektbilder/menomale-ig.jpeg" alt=""/>
                 </div>
                 <div className="grid-item">
-                    <img src="projektbilder/intrum-öppnare.jpeg" alt=""/>
+                    <img src="projektbilder/intrum-oppnare.jpeg" alt=""/>
                 </div>
             </div>
             <div className="grid-row">
