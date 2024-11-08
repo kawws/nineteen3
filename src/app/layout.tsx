@@ -21,7 +21,6 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
       </body>
-      <script id="script-loader" src="https://maps.googleapis.com/maps/api/js?libraries=maps&amp;key=AIzaSyAszTDHpgO36yKAMCdzV__2GlxX0aKLlR4&amp;v=weekly&amp;map_ids=&amp;language=en&amp;region=US&amp;auth_referrer_policy=origin&amp;callback=google.maps.__ib__"></script>
     </html>
     
   );
