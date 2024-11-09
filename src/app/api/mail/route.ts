@@ -13,8 +13,8 @@ export async function POST(request: NextRequest) {
 
     // Send the email using Resend's API
     const data = await resend.emails.send({
-      from: 'Info <onboarding@resend.dev>',
-      to: email,
+      from: 'Info <info@nineteenproduction.se>',
+      to: 'info@nineteenproduction.se',
       subject: 'New message from website',
       html: `<p>Name: ${name}</p>
       <p>Email: ${email}</p>
