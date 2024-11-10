@@ -10,6 +10,24 @@ a{
   align-items: center;
 }
 
+button{
+    text-transform: uppercase;
+    background-color: black;
+    border: 0;
+    padding: 12px;
+    font-family: Gilroy;
+    color: white;
+    font-family: 14px;
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+  
+}
+
+button:hover{
+  background-color: gray;
+}
+
 /* Header */
 
 .logo{
@@ -142,6 +160,7 @@ nav{
   white-space: nowrap;
   line-height: 1.25rem;
   height: 2.75rem;
+  color: black;
 }
 
 .hero-div img{
@@ -180,13 +199,31 @@ nav{
 }
 
 /* Contact */
+
+.contact-page-div{
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-information{
+  width: 100%;
+  padding-left: 30px;
+  border-left: 1px solid rgb(231 229 228);
+  box-sizing: border-box;
+}
+
+.contact-page-div-inner{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
 .contact-form{
   display: flex;
   gap: 20px;
   flex-direction: column;
-  padding: 20px;
   box-sizing: border-box;
-  width: 60%;
+  width: 100%;
 }
 .form-div{
   transition-property: all;
@@ -239,6 +276,74 @@ nav{
   background-color: gray;
 }
 
+/* Tekniker */
+.tekniker{
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+.tekniker2{
+  display: grid;
+  grid-template-columns:  1fr 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+.tekniker.last{
+  padding-bottom: 40px;
+}
+
+.tekniker div p{
+  font-size: 25px;
+}
+
+.grid-item-techniques {
+  background-color: transparent;
+  padding: 0px;
+  text-align: left;
+  display: grid;
+  gap: 20px;
+}
+
+.grid-item-techniques img{
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* About us */
+.about-us{
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.about-us p{
+  font-size: 18px !important;
+}
+
+.about-us h1{
+  margin: 0 !important;
+}
+
+/* Footer */
+footer{
+  width: 100%;
+  padding: 20px;
+  border-top: 1px solid rgb(231 229 228);
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+
 /* src/app/globals.css */
 @font-face {
   font-family: 'Gilroy';
@@ -246,4 +351,6 @@ nav{
   font-weight: 600; /* Adjust as necessary */
   font-style: normal;
 }
+
+
 

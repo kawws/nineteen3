@@ -20,11 +20,11 @@ export default function Header() {
             <li className={`header-item ${isActive('/projekt') ? 'active' : ''}`}>
               <Link href="/projekt">Tidigare projekt</Link>
             </li>
-            <li className={`header-item ${isActive('/tekniker') ? 'active' : ''}`}>
-              <Link href="/tekniker">Tekniker</Link>
+            <li className={`header-item ${isActive('/techniques') ? 'active' : ''}`}>
+              <Link href="/techniques">Tekniker</Link>
             </li>
-            <li className={`header-item ${isActive('/om-oss') ? 'active' : ''}`}>
-              <Link href="/om-oss">Om oss</Link>
+            <li className={`header-item ${isActive('/about') ? 'active' : ''}`}>
+              <Link href="/about">Om oss</Link>
             </li>
             <li className={`header-item ${isActive('/contact') ? 'active' : ''}`}>
               <Link href="/contact">Kontakt</Link>
