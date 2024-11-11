@@ -17,7 +17,7 @@ export default function ProjectPage() {
                 <button>Kontakta oss</button>
             </div>
             <div className="grid-item-techniques">
-                <img src="tekniker/screentryck.jpg" alt="Screentryck"/>
+                <img src="tekniker/Screentryck.jpg" alt="Screentryck"/>
                 <span>Screentryck</span>
             </div>
         </div>
@@ -47,7 +47,7 @@ export default function ProjectPage() {
         </div>
         <div className="tekniker last"> 
         <div className="grid-item-techniques">
-                <img src="tekniker/sublimerat.jpg" alt="sublimering"/>
+                <img src="tekniker/Sublimerat.jpg" alt="sublimering"/>
                 <span>Sublimering</span>
             </div>
             <div className="grid-item-techniques">
