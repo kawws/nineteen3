@@ -471,9 +471,11 @@ footer{
 
   /* Footer */
   footer{
+    display: flex;
     text-align: center;
     padding: 10px;
     font-size: 10px;
+    justify-content: center;
   }
 
 
