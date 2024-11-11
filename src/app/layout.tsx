@@ -1,5 +1,6 @@
 // src/app/layout.tsx
 import Header from './components/Header';
+import Mobileheader from './components/Mobileheader';
 import Footer from './components/Footer';
 import './globals.css';
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
+        <Mobileheader />
         <main>{children}</main>
         <Footer />
       </body>

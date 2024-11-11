@@ -48,6 +48,10 @@ header{
 
 }
 
+.mobile-header{
+  display: none;
+}
+
 header div{
   width: 100%;
   height: 100%;
@@ -201,9 +205,15 @@ nav{
 /* Contact */
 
 .contact-page-div{
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    gap: 20px;
+}
+
+.contact-page-div h1{
+  margin: 0;
 }
 
 .contact-information{
@@ -242,7 +252,7 @@ nav{
   font-family: Gilroy;
   border: 0;
   width: 100%;
-  font-family: 14px;
+  font-size: 14px;
 }
 
 .form-div textarea{
@@ -266,7 +276,7 @@ nav{
   padding: 12px;
   font-family: Gilroy;
   color: white;
-  font-family: 14px;
+  font-size: 14px;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(.4,0,.2,1);
   transition-duration: .15s;
@@ -284,6 +294,10 @@ nav{
   padding: 40px;
   padding-bottom: 0;
   box-sizing: border-box;
+}
+
+.tekniker h1{
+  margin: 0;
 }
 .tekniker2{
   display: grid;
@@ -319,11 +333,37 @@ nav{
 
 /* About us */
 .about-us{
-  display: grid;
-  grid-template-columns:  1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 40px;
   box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.about-us img{
+  aspect-ratio: 2 / 3;
+  width: 100%;
+}
+
+.about-us-outer{
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+}
+
+.about-us-grid{
+  padding: 40px;
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* gap: 20px; */
+  column-gap: 20px;
+}
+
+.grid-item-about img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 2 / 3;
 }
 
 .about-us p{
@@ -332,6 +372,15 @@ nav{
 
 .about-us h1{
   margin: 0 !important;
+}
+
+.image-container-about{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* Footer */
@@ -344,6 +393,84 @@ footer{
 }
 
 
+/* Phone */
+@media only screen and (max-width: 700px) {
+  /* Allmänt */
+  /* Mobile header */
+  header{
+    display: none;
+  }
+
+  .mobile-header{
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 0;
+  }
+
+  .mobile-header ul{
+    gap: 10px;
+  }
+  /* Frontpage */
+  .hero-section{
+    grid-template-columns: 1fr;
+  }
+  /* Projekt sida */
+  .grid-row:nth-child(odd){
+    grid-template-columns: 1fr;
+  }
+  .grid-row:nth-child(even) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-row:nth-child(even) .grid-item:nth-child(3) {
+    display: none;
+  }
+
+  /* Tekniker */
+  
+  .tekniker {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+
+  .tekniker,
+  .tekniker2{
+    grid-template-columns: 1fr;
+    padding: 20px;
+    padding-bottom: 0;
+  }
+  /* Kontakt */
+  .contact-page-div-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .contact-information{
+    padding: 0;
+    border: none;
+  }
+
+  /* About */
+
+  .about-us-outer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .about-us{
+    padding: 20px;
+  }
+
+  /* Footer */
+  footer{
+    text-align: center;
+  }
+
+
+}
+
 /* src/app/globals.css */
 @font-face {
   font-family: 'Gilroy';
@@ -351,6 +478,8 @@ footer{
   font-weight: 600; /* Adjust as necessary */
   font-style: normal;
 }
+
+
 
 
 
