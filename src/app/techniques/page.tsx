@@ -1,4 +1,8 @@
 // src/app/projekt/page.tsx
+
+import Link from 'next/link';
+
+
 export default function ProjectPage() {
     return (
       <>
@@ -14,7 +18,9 @@ export default function ProjectPage() {
                 <br />
                 Kontakta oss så hjälper vi dig med ditt projekt!
                 </p>
-                <button>Kontakta oss</button>
+                <Link href="/contact">
+                    <button>Kontakta oss</button>
+                </Link>
             </div>
             <div className="grid-item-techniques">
                 <img src="tekniker/Screentryck.jpg" alt="Screentryck"/>

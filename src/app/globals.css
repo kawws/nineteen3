@@ -151,6 +151,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .hero-div button{
@@ -165,6 +166,10 @@ nav{
   line-height: 1.25rem;
   height: 2.75rem;
   color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hero-div img{
@@ -301,7 +306,7 @@ nav{
 .tekniker2{
   display: grid;
   grid-template-columns:  1fr 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
   padding: 40px;
   padding-bottom: 0;
   box-sizing: border-box;
@@ -319,8 +324,9 @@ nav{
   background-color: transparent;
   padding: 0px;
   text-align: left;
-  display: grid;
-  gap: 20px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 
 .grid-item-techniques img{
