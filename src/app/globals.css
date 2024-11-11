@@ -473,7 +473,10 @@ footer{
   footer{
     display: flex;
     padding: 10px;
-    font-size: 10px;
+    font-size: 12px;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
   }
 
 
