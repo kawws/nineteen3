@@ -16,9 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="https://nineteenstudent.se/favicon.ico" type="image/x-icon" />
-      </head>
       <body>
         <Header />
         <Mobileheader />
