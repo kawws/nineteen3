@@ -19,7 +19,7 @@ export default function ProjectPage() {
               </p>
             </div>
 
-            <img src="about/IMG_6158.jpg" alt="Nineteen" />
+            <img src="https://cdn.nineteen.neuw.app/assets/IMG_6158.webp" alt="Nineteen" />
             <div>
               <h3>Emballage & smådetaljer</h3>
               <p>
@@ -40,7 +40,7 @@ export default function ProjectPage() {
           </div>
         </div>
         <div className="about-us second">
-          <img src="about/IMG_6120.jpg" alt="Nineteen" />
+          <img src="https://cdn.nineteen.neuw.app/assets/IMG_6120.webp" alt="Nineteen" />
           <div>
             <h3>Grafisk designhjälp</h3>
                 <p>Saknar ni logotyp eller vill testa på en ny design
@@ -55,7 +55,7 @@ export default function ProjectPage() {
               Expressalternativ finns givetvis också.
             </p>
           </div>
-          <img src="about/IMG_6163.jpg" alt="Nineteen" />
+          <img src="https://cdn.nineteen.neuw.app/assets/IMG_6163.webp" alt="Nineteen" />
         </div>
       </div>
     </>

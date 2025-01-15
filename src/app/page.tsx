@@ -9,13 +9,13 @@ export default function HomePage() {
             <Link href="/projekt">
             <button>Tidigare projekt</button>
             </Link>
-          <img src="/threads.png" alt="threads" />
+          <img src="https://cdn.nineteen.neuw.app/assets/threads.jpeg" alt="threads" />
         </div>
         <div className="hero-div">
             <Link href="/contact">
             <button>Kontakta oss</button>
             </Link>
-          <img src="/orange-fabrics.png" alt="threads" />
+          <img src="https://cdn.nineteen.neuw.app/assets/orange-fabrics.jpeg" alt="orange-fabrics" />
         </div>
       </div>
     </>
